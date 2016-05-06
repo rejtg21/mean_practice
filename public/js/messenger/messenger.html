@@ -1,0 +1,48 @@
+<div class = "container" ng-controller = "MessengerCtrl as mc">
+	<h1>Messenger List App</h1>
+		<div class = "row">
+			<div class = "col-md-8">
+				<div class="panel panel-default "> 
+					<div class="panel-heading"> 
+						<h3 class="panel-title">Messages</h3> 
+					</div> 
+					<div class="panel-body chat-size">
+						<div class="row" ng-repeat = "msg in mc.messages">
+							<div class = "col-md-2">
+								<label>{{msg.sender_name}}</label>
+							</div>
+							<div class = "col-md-8">
+								{{msg.message}}
+							</div>
+						</div>
+					</div> 
+
+				    <div class="panel-footer">
+				    	<div class = "row">
+				    	<div class = "col-md-10">
+					    	<textarea class = "form-control" ng-model = "mc.msg_box" ng-keyup ="mc.enter($event)"></textarea>
+					    </div>
+					    <div class = "col-md-2">
+					    	<button class = "btn btn-primary btn-send" ng-click="mc.send()">Send</button>
+					    </div>
+					</div>
+				    </div>
+				</div>
+			</div>
+
+			<div class = "col-md-4">
+				<div class="panel panel-default"> 
+					<div class="panel-heading"> 
+						<h3 class="panel-title">Users</h3> 
+					</div> 
+					<ul class="list-group friend-list">
+				      <li class="list-group-item">Rej</li>
+				      <li class="list-group-item">Eyayt</li>
+				      <li class="list-group-item">AA</li>
+				      <li class="list-group-item">Porta ac consectetur ac</li>
+				      <li class="list-group-item">Vestibulum at eros</li>
+				    </ul>
+				</div>
+			</div>
+		</div>
+</div>
