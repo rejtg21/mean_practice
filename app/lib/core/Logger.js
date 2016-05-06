@@ -2,15 +2,16 @@
 *	Logger Library
 *	Log message into a file
 */
-var path = require('path'),
-fs = require('fs'),
-main_path = path.dirname(require.main.filename),
-app_path = require(main_path.concat('/paths')),
-log = require(app_path.auto_load.config.concat('app')).log;
 (function(){
 	'use strict'
 	module.exports = Logger;
-	function Logger(){
+	function Logger(app){
+		var log = app.config.app.log,
+		fs = app.fs,
+		app_path = app.path;
+
+		console.log('Initialized Logger');
+		
 		this.saveToDir = function(type, msg){
 			type = type.toUpperCase();
 

@@ -6,8 +6,6 @@ var file = require('./app/lib/core/File');
 	'use strict'
 	module.exports = bootstrap;
 	function bootstrap(app_path){
-		console.log('file');
-		console.log(file);
 		var data = {};
 		for(var key in app_path){
 			console.log('Initializing', key);

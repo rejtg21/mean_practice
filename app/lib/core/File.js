@@ -1,16 +1,20 @@
 /**
 *	Library that handle all about files
 */
+// overwrite fs and added fetch all property
 var fs = require('fs');
 (function(){
 	'use strict'
-	module.exports = {
+	module.exports = File;
+
+	function File() {
+		// console.log(fs);
 		/**
 		*	@param {string} path - path to be read
 		*	@param {object} data - retreive files will be stored here
 		*	@param {bool} dig_dir - to dig all child directories
 		*/
-		fetchAll : function(path, data, dig_dir){
+		fs.fetchAll = function(path, dig_dir, data){
 			var data = data || {}; // if not declared redeclare
 			var fileNames = fs.readdirSync(path);
 			var self = this;
@@ -28,16 +32,14 @@ var fs = require('fs');
 				// if file
 				file = removeJsExt(file);
 				var base_dir = '';
-				var logger = require('./Logger'),
-				log = new logger(fs,'./app/storage/logs/');
-				log.info('eyayt - - - - - - -- ');
-				log.info(require.main.filename);
 				base_dir = base_dir.concat(path, file);
 				data[file] = require(base_dir);
 			});
 
 			return data;
 		}
+
+		return fs;
 	}
 
 	function removeJsExt(file){

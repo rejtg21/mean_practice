@@ -1,0 +1,9 @@
+[5/6/2016, 5:45:27 PM][INFO]:{
+	"common": {
+		"err_invalid_req": "Error. Invalid request."
+	},
+	"validation": {
+		"test": "Error. tetessst"
+	}
+} 
+[5/6/2016, 5:45:27 PM][INFO]:"Server Initialized" 
